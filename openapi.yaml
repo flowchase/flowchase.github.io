@@ -4,12 +4,12 @@ info:
   title: Flowchase API
   description: >
     Flowchase API, a RESTful API for the Flowchase performance tool
-  termsOfService: 'https://www.flowchase.app/terms'
+  termsOfService: "https://www.flowchase.app/terms"
   license:
     name: proprietary software
-    url: 'https://www.flowchase.app/license'
+    url: "https://www.flowchase.app/license"
   x-logo:
-    url: 'https://storage.googleapis.com/flwc-app-media/flowchaseapilogo.png'
+    url: "https://storage.googleapis.com/flwc-app-media/flowchaseapilogo.png"
 paths:
   $ref: src/domains/performance-tool/router.yaml#/router
 
@@ -43,7 +43,7 @@ components:
         feedback:
           type: array
           items:
-            $ref: '#/components/schemas/feedbackCard'
+            $ref: "#/components/schemas/feedbackCard"
         ipa:
           type: string
         start:
@@ -76,4 +76,4 @@ components:
 security:
   - api_key: []
 servers:
-  - url: 'https://flowchaseapi1gw080xa-api-staging.functions.fnc.fr-par.scw.cloud'
+  - url: "https://api-staging.flowchase.app"
