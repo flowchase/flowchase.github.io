@@ -1,0 +1,23 @@
+get:
+  operationId: get_themes
+  summary: Get all themes for open questions
+
+  responses:
+    '200':
+      description: List of themes for open questions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: number
+                  description: The ID of the theme
+                name:
+                  type: string
+                  description: The subject of the theme
+
+    '403':
+      description: API key is not valid or expired

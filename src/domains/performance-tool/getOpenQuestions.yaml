@@ -1,0 +1,27 @@
+get:
+  operationId: get_open_questions
+  summary: Get all open questions
+  parameters:
+    - in: query
+      name: themeId
+      description: The id of the theme you want to get the questions from
+      required: true
+      schema:
+        type: integer
+
+  responses:
+    '200':
+      description: List of open questions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: The question
+
+    '403':
+      description: API key is not valid or expired

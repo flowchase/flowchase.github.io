@@ -1,0 +1,59 @@
+post:
+  operationId: rate_response
+  summary: Rate the the audio for IELTS or CEFR certifications
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            content:
+              type: string
+              description: The flowchase feedback stringified for the pronunciation or the text used for the others
+            type:
+              type: string
+              enum: ["cefr", "ielts"]
+              description: Certification to apply
+            skill:
+              type: string
+              enum: ["pronunciation", "vocabulary", "grammar", "coherence"]
+              description: The language skill to rate. For cefr, only pronunciation and vocabulary are supported
+
+  responses:
+    "200":
+      description: Rating of the content given
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              level:
+                type: string
+                description: The level on the selected certification format
+              type:
+                type: string
+                description: The selected certification
+              skill:
+                type: string
+                description: The selected skill
+              summary:
+                type: array
+                items:
+                  type: string
+                  description: List of things to improve
+              generalSummary:
+                type: array
+                items:
+                  type: string
+                  description: See summary
+              recast:
+                type: string
+                description: Improved version of the given content
+              detailedFeedback:
+                type: array
+                items:
+                  $ref: ../../../openapi.yaml#/components/schemas/feedback
+
+    "403":
+      description: API key is not valid or expired

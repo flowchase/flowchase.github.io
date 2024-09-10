@@ -1,0 +1,52 @@
+post:
+  operationId: analysis_practice
+  summary: Practice a single word
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            attempt:
+              type: integer
+            content:
+              type: string
+            audio:
+              type: string
+              format: binary
+
+  responses:
+    "200":
+      description: The result of the practice
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  feedback:
+                    type: array
+                    description: The feedback cards of the practice
+                    items:
+                      $ref: ../../../openapi.yaml#/components/schemas/feedback
+                  practiceMessage:
+                    type: string
+                  metadata:
+                    type: object
+                    properties:
+                      audioPath:
+                        type: string
+                        description: The path to the audio file
+                      baseContent:
+                        type: string
+                        description: The content that has been analyzed
+                  status:
+                    type: string
+                    description: The status of the analysis
+                    enum: [success, failure]
+
+    "403":
+      description: API key is not valid or expired
