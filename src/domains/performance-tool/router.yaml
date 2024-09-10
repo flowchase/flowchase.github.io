@@ -1,17 +1,17 @@
 router:
-  '/performance-tool/analysis/word':
-    $ref: analysis/word.yaml
-  '/performance-tool/analysis/sentence':
-    $ref: analysis/sentence.yaml
-  '/performance-tool/analysis/open-question':
-    $ref: analysis/open-question.yaml
-  '/performance-tool/analysis/practice':
-    $ref: analysis/practice.yaml
-  '/performance-tool/open-questions':
-    $ref: open-questions/getOpenQuestions.yaml
-  '/performance-tool/recordings':
-    $ref: recordings/getRecordings.yaml
-  '/performance-tool/questions/themes':
-    $ref: open-questions/getThemes.yaml
-  '/performance-tool/ratings':
-    $ref: rating/rate-response.yaml
+  "/performance-tool/analysis/word":
+    $ref: word.yaml
+  "/performance-tool/analysis/sentence":
+    $ref: sentence.yaml
+  "/performance-tool/analysis/open-question":
+    $ref: open-question.yaml
+  "/performance-tool/analysis/practice":
+    $ref: practice.yaml
+  "/performance-tool/open-questions":
+    $ref: getOpenQuestions.yaml
+  "/performance-tool/recordings":
+    $ref: getRecordings.yaml
+  "/performance-tool/questions/themes":
+    $ref: getThemes.yaml
+  "/performance-tool/ratings":
+    $ref: rate-response.yaml
